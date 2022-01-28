@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: cdd9259b1ce5e064cbf558c90b28f614
+  - enabled: 1
+    path: Assets/Scenes/EmailTest.unity
+    guid: 2cd274f495147f54992be1d36ef084d3
+  - enabled: 1
+    path: Assets/Scenes/Isometric.unity
+    guid: 67902a28336787b47945fe22c8695c05
   m_configObjects: {}
