@@ -5,24 +5,36 @@ using System.Collections.Generic;
 public class GenerateTiles : MonoBehaviour {
 
     [SerializeField] private Tilemap treeMap, baseMap;
-    [SerializeField] private TileBase tree;
-    [SerializeField] private float density; // Between 0 and 10
+    [SerializeField] private TileBase[] trees;
+    [SerializeField] private float treeDensity, protesterDensity; // Between 0 and 10
 
-    private List<Vector3Int> openTiles = new List<Vector3Int>();
+    public TileBase protester;
+
+    private List<Vector3Int> allTiles = new List<Vector3Int>();
 
     private void Start() {
-        foreach (Vector3Int position in baseMap.cellBounds.allPositionsWithin) {
-            openTiles.Add(position);
+        foreach (Vector3Int position in baseMap.cellBounds.allPositionsWithin) { // Init allTiles
+            allTiles.Add(position);
         }
 
         GenerateTrees();
+        GenerateProtesters();
+    }
+
+    private void GenerateProtesters() {
+        for (int i = 0; i < allTiles.Count; i++) {
+            if (Random.Range(0f, 10f) < protesterDensity) {
+                treeMap.SetTile(allTiles[i], protester);
+                allTiles.Remove(allTiles[i]);
+            }
+        }
     }
 
     private void GenerateTrees() {
-        foreach (Vector3Int pos in openTiles) {
-            if (Random.Range(0f, 10f) < density) {
-                treeMap.SetTile(pos, tree);
-                openTiles.Remove(pos); // Tile is no longer open
+        for (int i = 0; i < allTiles.Count; i++) {
+            if (Random.Range(0f, 10f) < treeDensity) {
+                treeMap.SetTile(allTiles[i], trees[Random.Range(0, trees.Length)]);
+                allTiles.Remove(allTiles[i]);
             }
         }
     }

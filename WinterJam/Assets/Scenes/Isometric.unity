@@ -153,7 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  generateTiles: {fileID: 842925803}
   map: {fileID: 1971895948}
+  treeMap: {fileID: 562696903}
   tiles:
   - {fileID: 11400000, guid: d1f8bccaf40d40e4d887d4f50afcba4f, type: 2}
   - {fileID: 11400000, guid: 7ddce2438e222be46b4eca73a4ccf6f9, type: 2}
@@ -300,7 +302,7 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -8, y: -9, z: 0}
   m_Size: {x: 17, y: 19, z: 1}
-  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileAnchor: {x: 1, y: 1, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
     e00: 1
@@ -2058,8 +2060,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treeMap: {fileID: 562696903}
   baseMap: {fileID: 796589163}
-  tree: {fileID: 11400000, guid: 82e8773bf0011fa438dfc5acac190c45, type: 2}
-  density: 1
+  trees:
+  - {fileID: 11400000, guid: 8186342483333314aacd2ee850da87e6, type: 2}
+  - {fileID: 11400000, guid: d5f2b0cec0b2d514dacf47d397e0dab7, type: 2}
+  treeDensity: 1
+  protesterDensity: 0.3
+  protester: {fileID: 11400000, guid: 670a7b52cc65018489886ca9ad6d5300, type: 2}
 --- !u!4 &842925804
 Transform:
   m_ObjectHideFlags: 0

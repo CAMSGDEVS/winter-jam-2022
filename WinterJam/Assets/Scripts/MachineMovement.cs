@@ -4,18 +4,20 @@ using UnityEngine.Tilemaps;
 public class MachineMovement : MonoBehaviour {
 
     [SerializeField] private float moveSpeed = 2;
-
-    [SerializeField] private Tilemap map;
+    [SerializeField] private GenerateTiles generateTiles;
+    [SerializeField] private Tilemap map, treeMap;
     [SerializeField] private TileBase[] tiles = new TileBase[4];
 
     private Vector3Int position = new Vector3Int(0, 0, 0);
     private int direction = 0; // Direction the machine is facing: 0 = frontLeft, 1 = backLeft, 2 = frontRight, 3 = backRight
     private Vector3Int movement;
+    private bool isMoving;
 
     public void Start() {
         map.SetTile(position, tiles[direction]);
         movement = new Vector3Int(0, 1, 0); // Default starting movement
 
+        isMoving = true;
         InvokeRepeating("Move", 1/moveSpeed, 1/moveSpeed);
     }
 
@@ -44,9 +46,22 @@ public class MachineMovement : MonoBehaviour {
     }
 
     private void Move() {
-        position += movement;
-        map.ClearAllTiles();
-        map.SetTile(position, tiles[direction]);
+        if (isMoving) {
+            position += movement;
+            map.ClearAllTiles();
+            map.SetTile(position, tiles[direction]);
+
+            TileBase tree = treeMap.GetTile(position);
+            if (tree != null && tree != generateTiles.protester) { // Collision with tree
+                treeMap.SetTile(position, null);
+
+            } else if (tree == generateTiles.protester) {
+                Debug.Log("someone died");
+                treeMap.SetTile(position, null);
+                isMoving = false;
+                // Lose / option to restart here
+            }
+        }
     }
 
 }
