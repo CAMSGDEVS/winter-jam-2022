@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class EmailDisplay : MonoBehaviour {
     // [SerializeField] public LineRenderer lineRenderer;
-    [SerializeField] public GameObject mapPoint;
+    [SerializeField] private GameObject mapPoint;
 
-    [SerializeField] public Text headerText;
-    [SerializeField] public Text senderText;
-    [SerializeField] public Text bodyText;
+    [SerializeField] private Text headerText;
+    [SerializeField] private Text senderText;
+    [SerializeField] private Text bodyText;
 
     /*
     // May switch to implementation with arrays if optimization is needed
@@ -23,14 +23,17 @@ public class EmailDisplay : MonoBehaviour {
     private GameObject mainCorner;
     */
 
-    [SerializeField] public Animator animator;
+    [SerializeField] private Animator animator;
 
-    [SerializeField] public Button openButton;
-    [SerializeField] public Button closeButton;
-    [SerializeField] public Button deleteButton;
-    [SerializeField] public Button replyButton;
-    [SerializeField] public Button yesButton;
-    [SerializeField] public Button noButton;
+    [SerializeField] private Button openButton;
+    [SerializeField] private Button closeButton;
+    [SerializeField] private Button deleteButton;
+    [SerializeField] private Button replyButton;
+    [SerializeField] private Button yesButton;
+    [SerializeField] private Button noButton;
+
+    [SerializeField] private Sprite yesImage;
+    [SerializeField] private Sprite noImage;
 
     public Email emailData;
 
@@ -83,7 +86,48 @@ public class EmailDisplay : MonoBehaviour {
     }
 
     public void Delete() {
+        replyButton.interactable = false;
+        closeButton.interactable = false;
+        deleteButton.interactable = false;
+        Close();
+        GameManager.EnvironmentScore += emailData.IgnoreScore;
+        StartCoroutine(waitBeforeDeletion());
+    }
 
+    public void Reply() {
+        replyButton.interactable = false;
+        closeButton.interactable = false;
+        deleteButton.interactable = false;
+        // Open window
+        animator.SetBool("Reply", true);
+    }
+
+    public void Yes() {
+        yesButton.gameObject.GetComponent<Image>().sprite = yesImage;
+        yesButton.interactable = false;
+        noButton.interactable = false;
+        GameManager.EnvironmentScore += emailData.AcceptScore;
+        StartCoroutine(waitAfterReply());
+    }
+
+    public void No() {
+        noButton.gameObject.GetComponent<Image>().sprite = noImage;
+        yesButton.interactable = false;
+        noButton.interactable = false;
+        GameManager.EnvironmentScore += emailData.DenyScore;
+        StartCoroutine(waitAfterReply());
+    }
+
+    private IEnumerator waitAfterReply() {
+        yield return new WaitForSeconds(1f);
+        Close();
+        StartCoroutine(waitBeforeDeletion());
+    }
+
+    private IEnumerator waitBeforeDeletion() {
+        animator.SetBool("Deleting", true);
+        yield return new WaitForSeconds(2f);
+        Destroy(transform.parent.gameObject);
     }
 
     /*

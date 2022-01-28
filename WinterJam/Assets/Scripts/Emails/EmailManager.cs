@@ -5,6 +5,17 @@ using System.Linq;
 
 public class EmailManager : MonoBehaviour
 {
+    private static EmailManager _instance;
+    public static EmailManager Instance { 
+        get {
+            if (_instance == null) {
+                Debug.Log("Email Manager is null");
+            }
+            return _instance;
+        }
+                
+    }
+
     public Emails Emails { get; set; }
     private Emails currentEmails;
 
