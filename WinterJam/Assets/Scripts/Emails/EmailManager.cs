@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class EmailManager : MonoBehaviour
 {
@@ -16,8 +15,8 @@ public class EmailManager : MonoBehaviour
                 
     }
 
-    public Emails Emails { get; set; }
-    private Emails currentEmails;
+    public EmailWrapper Emails { get; set; }
+    // private Emails currentEmails;
 
     public Animator animator;
 
@@ -27,19 +26,16 @@ public class EmailManager : MonoBehaviour
 
     // Load email data from json resource file
     public void LoadEmailsFromJson() {
-        Debug.Log(Resources.Load<TextAsset>("emails").text);
-        Emails = JsonUtility.FromJson<Emails>(
+        Emails = JsonUtility.FromJson<EmailWrapper>(
             Resources.Load<TextAsset>("emails").text
         );
-        for (int i = 0; i < Emails.emails.Length; i++) {
-            Debug.Log(Emails.emails[i].BodyText);
-        }
     }
 
     public void Start() {
         LoadEmailsFromJson();
     }
 
+    /**
     // Placeholder for now
     public void OpenEmailMenu(int numEmails) {
         currentEmails = new Emails();
@@ -78,7 +74,7 @@ public class EmailManager : MonoBehaviour
             emailDisplay.LoadFromEmail();
         }
     }
-
+    
     public void CloseEmailMenu() {
         // Destroy the loaded emails
         for (int i = 0; i < LoadedEmails.Count; i++) {
@@ -88,6 +84,5 @@ public class EmailManager : MonoBehaviour
         }
         LoadedEmails = null;
     }
-
-    
+    **/
 }
