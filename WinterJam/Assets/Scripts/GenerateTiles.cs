@@ -13,10 +13,21 @@ public class GenerateTiles : MonoBehaviour {
     private List<Vector3Int> allTiles = new List<Vector3Int>();
 
     private void Start() {
+        Init();
+        GenerateTrees();
+        GenerateProtesters();
+    }
+
+    private void Init() {
+        allTiles.Clear();
         foreach (Vector3Int position in baseMap.cellBounds.allPositionsWithin) { // Init allTiles
             allTiles.Add(position);
         }
+    }
 
+    public void Reset() {
+        Init();
+        treeMap.ClearAllTiles();
         GenerateTrees();
         GenerateProtesters();
     }

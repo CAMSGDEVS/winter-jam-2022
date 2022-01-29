@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class MachineMovement : MonoBehaviour {
 
     [SerializeField] private float moveSpeed = 2;
     [SerializeField] private GenerateTiles generateTiles;
-    [SerializeField] private Tilemap map, treeMap;
+    [SerializeField] private Tilemap map, treeMap, baseMap;
     [SerializeField] private TileBase[] tiles = new TileBase[4];
+    [SerializeField] private Animator animator;
+    [SerializeField] private Text legalText;
 
     private Vector3Int position = new Vector3Int(0, 0, 0);
     private int direction = 0; // Direction the machine is facing: 0 = frontLeft, 1 = backLeft, 2 = frontRight, 3 = backRight
@@ -45,6 +48,16 @@ public class MachineMovement : MonoBehaviour {
 
     }
 
+    public void Restart() {
+        animator.SetTrigger("Close");
+        position = new Vector3Int(0, 0, 0);
+        movement = new Vector3Int(0, 1, 0); // Default starting movement
+        direction = 0;
+        map.SetTile(position, tiles[direction]);
+        generateTiles.Reset();
+        isMoving = true;
+    }
+
     private void Move() {
         if (isMoving) {
             position += movement;
@@ -56,10 +69,15 @@ public class MachineMovement : MonoBehaviour {
                 treeMap.SetTile(position, null);
 
             } else if (tree == generateTiles.protester) {
-                Debug.Log("someone died");
+                legalText.text = " - Legal Notice -\n\nYou have been charged with first degree murder. Use money to cover it up?";
+                animator.SetTrigger("Open");
                 treeMap.SetTile(position, null);
                 isMoving = false;
-                // Lose / option to restart here
+
+            } else if (baseMap.GetTile(position) == null) {
+                legalText.text = " - Legal Notice -\n\nAn executive blames you for damaging company machines in a crash. Fire him to cover it up?";
+                animator.SetTrigger("Open");
+                isMoving = false;
             }
         }
     }
