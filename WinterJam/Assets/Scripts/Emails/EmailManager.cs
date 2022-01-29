@@ -17,16 +17,20 @@ public class EmailManager : MonoBehaviour
 
     public EmailWrapper Emails { get; set; }
 
-    [SerializeField]
-    private GameObject emailPrefab;
-
     public EmailDisplay emailDisplay;
+    public RenderLine renderLine;
 
     private void Awake() {
         if (_instance != null) {
             Destroy(this);
         }
         _instance = this;
+    }
+
+    public void Init(int emailId = 1) {
+        OverwriteEmail(emailId, emailDisplay);
+        emailDisplay.Init();
+        renderLine.Init();
     }
 
     // Load email data from json resource file
@@ -39,6 +43,7 @@ public class EmailManager : MonoBehaviour
     public void Start() {
         DontDestroyOnLoad(gameObject);
         LoadEmailsFromJson();
+        Init();
     }
 
     public void OverwriteEmail(int emailId, EmailDisplay display) {

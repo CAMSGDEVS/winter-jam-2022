@@ -14,7 +14,7 @@ public class EmailDisplay : MonoBehaviour {
 
     public Email emailData;
 
-    public GameObject center;
+    public GameObject center, smallWindow;
 
     public void LoadFromData() {
         headerText.text = emailData.Title;
@@ -26,18 +26,20 @@ public class EmailDisplay : MonoBehaviour {
         EmailManager.Instance.emailDisplay = this;
     }
 
-    // Start is called before the first frame update
-    private void Start() {
+    public void Init() {
         Open();
     }
 
     // Open the email
     public void Open() {
+        smallWindow.SetActive(false);
+        EmailManager.Instance.renderLine.ToggleEnabled(true);
         animator.SetBool("EmailOpen", true);
     }
 
     // Close the email
     public void Close() {
+        EmailManager.Instance.renderLine.ToggleEnabled(false);
         animator.SetBool("EmailOpen", false);
     }
 
@@ -50,6 +52,7 @@ public class EmailDisplay : MonoBehaviour {
     }
 
     public void Reply() {
+        smallWindow.SetActive(true);
         replyButton.interactable = false;
         deleteButton.interactable = false;
         // Open window
