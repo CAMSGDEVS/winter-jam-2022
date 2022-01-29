@@ -16,6 +16,15 @@ public class GameManager : MonoBehaviour
     }
 
     public static int EnvironmentScore = 50;
+    public static int treesDestroyed = 0;
+    public static int protestersKilled = 0;
+    public static int year = 0;
+
+    public void ChangeYear(int year) {
+        // Disable all isometric stuff
+        // Enable globe view
+        // Show next email
+    }
 
     private void Awake() {
         if (_instance != null) {

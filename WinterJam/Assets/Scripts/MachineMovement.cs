@@ -13,6 +13,7 @@ public class MachineMovement : MonoBehaviour {
 
     private Vector3Int position = new Vector3Int(0, 0, 0);
     private int direction = 0; // Direction the machine is facing: 0 = frontLeft, 1 = backLeft, 2 = frontRight, 3 = backRight
+    private int treeCount = 0;
     private Vector3Int movement;
     private bool isMoving;
 
@@ -67,9 +68,11 @@ public class MachineMovement : MonoBehaviour {
             TileBase tree = treeMap.GetTile(position);
             if (tree != null && tree != generateTiles.protester) { // Collision with tree
                 treeMap.SetTile(position, null);
+                GameManager.treesDestroyed++;
 
             } else if (tree == generateTiles.protester) {
                 legalText.text = " - Legal Notice -\n\nYou have been charged with first degree murder. Use money to cover it up?";
+                GameManager.protestersKilled++;
                 animator.SetTrigger("Open");
                 treeMap.SetTile(position, null);
                 isMoving = false;
