@@ -25,6 +25,8 @@ public class EmailManager : MonoBehaviour
             Destroy(this);
         }
         _instance = this;
+        DontDestroyOnLoad(gameObject);
+        LoadEmailsFromJson();
     }
 
     public void Init(int emailId = 1) {
@@ -40,14 +42,10 @@ public class EmailManager : MonoBehaviour
         );
     }
 
-    public void Start() {
-        DontDestroyOnLoad(gameObject);
-        LoadEmailsFromJson();
-        Init();
-    }
-
     public void OverwriteEmail(int emailId, EmailDisplay display) {
         display.emailData = Emails.emails[emailId];
         display.LoadFromData();
     }
+
+
 }

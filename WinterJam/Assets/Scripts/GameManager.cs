@@ -20,10 +20,12 @@ public class GameManager : MonoBehaviour
     public static int protestersKilled = 0;
     public static int year = 0;
 
+    public GameObject IsometricView, GlobeView;
+
     public void ChangeYear(int year) {
-        // Disable all isometric stuff
-        // Enable globe view
-        // Show next email
+        IsometricView.SetActive(false);
+        GlobeView.SetActive(true);
+        EmailManager.Instance.Init(year * 2 + Random.Range(0, 2));
     }
 
     private void Awake() {
@@ -37,9 +39,8 @@ public class GameManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+        ChangeYear(0);
     }
 
     // Update is called once per frame
