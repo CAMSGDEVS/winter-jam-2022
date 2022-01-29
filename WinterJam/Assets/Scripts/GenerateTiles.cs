@@ -6,6 +6,7 @@ public class GenerateTiles : MonoBehaviour {
 
     [SerializeField] private Tilemap treeMap, baseMap;
     [SerializeField] private TileBase[] trees;
+    [SerializeField] private MachineMovement machineMovement;
     [SerializeField] private float treeDensity, protesterDensity; // Between 0 and 10
 
     public TileBase protester;
@@ -46,6 +47,7 @@ public class GenerateTiles : MonoBehaviour {
             if (Random.Range(0f, 10f) < treeDensity) {
                 treeMap.SetTile(allTiles[i], trees[Random.Range(0, trees.Length)]);
                 allTiles.Remove(allTiles[i]);
+                machineMovement.treeCount++;
             }
         }
     }
