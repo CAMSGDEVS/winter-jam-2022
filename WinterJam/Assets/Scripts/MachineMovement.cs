@@ -72,7 +72,7 @@ public class MachineMovement : MonoBehaviour {
                 treeCount--;
                 if (treeCount <= 0) {
                     GameManager.year++;
-                    GameManager.ChangeYear(GameManager.year);
+                    GameManager.Instance.ChangeYear(GameManager.year);
                 }
 
             } else if (tree == generateTiles.protester) {
