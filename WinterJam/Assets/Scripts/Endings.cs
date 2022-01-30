@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Endings : MonoBehaviour {
 
     [SerializeField] private GameObject good, bad;
+    [SerializeField] private Text badStats;
 
     public void Accept() {
         Application.Quit();
@@ -13,8 +15,9 @@ public class Endings : MonoBehaviour {
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void BadEnding() {
+    public void BadEnding(string stats) {
         bad.SetActive(true);
+        badStats.text = stats;
     }
 
     public void GoodEnding() {
