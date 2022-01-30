@@ -342,8 +342,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3078118659658644929}
         m_TargetAssemblyTypeName: EmailDisplay, Assembly-CSharp
-        m_MethodName: No
-        m_Mode: 1
+        m_MethodName: EndReply
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -582,6 +582,8 @@ MonoBehaviour:
   noButton: {fileID: 4505572344220218014}
   yesImage: {fileID: -8094590956837232288, guid: 9a40cc92611defa4698943aa719556c8, type: 3}
   noImage: {fileID: 3524253427777847954, guid: 52997a8cb78c52d4a81d341e45eb9c26, type: 3}
+  defaultYesImage: {fileID: -5133863244488265749, guid: 9a40cc92611defa4698943aa719556c8, type: 3}
+  defaultNoImage: {fileID: -7039361619501050035, guid: 52997a8cb78c52d4a81d341e45eb9c26, type: 3}
   emailData:
     Title: 
     Sender: 
@@ -589,6 +591,7 @@ MonoBehaviour:
     AcceptScore: 0
     DenyScore: 0
     IgnoreScore: 0
+    Positive: 0
   center: {fileID: 1253738810288237274}
   smallWindow: {fileID: 7869826677292239348}
 --- !u!95 &5539390708788073145
@@ -1400,13 +1403,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3078118659658644929}
         m_TargetAssemblyTypeName: EmailDisplay, Assembly-CSharp
-        m_MethodName: Yes
-        m_Mode: 1
+        m_MethodName: EndReply
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2

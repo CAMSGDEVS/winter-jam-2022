@@ -61,6 +61,11 @@ public class MachineMovement : MonoBehaviour {
 
     public void ChangeYear() {
         isMoving = false;
+        animator.SetTrigger("Close");
+        position = new Vector3Int(0, 0, 0);
+        movement = new Vector3Int(0, 1, 0);
+        direction = 0;
+        map.SetTile(position, tiles[direction]);
         GameManager.year++;
         GameManager.Instance.ChangeYear(GameManager.year);
     }

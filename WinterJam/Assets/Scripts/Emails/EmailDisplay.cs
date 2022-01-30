@@ -10,7 +10,7 @@ public class EmailDisplay : MonoBehaviour {
 
     [SerializeField] private Button deleteButton, replyButton, yesButton, noButton;
 
-    [SerializeField] private Sprite yesImage, noImage;
+    [SerializeField] private Sprite yesImage, noImage, defaultYesImage, defaultNoImage;
 
     public Email emailData;
 
@@ -36,6 +36,8 @@ public class EmailDisplay : MonoBehaviour {
         deleteButton.interactable = true;
         yesButton.interactable = true;
         noButton.interactable = true;
+        yesButton.gameObject.GetComponent<Image>().sprite = defaultYesImage;
+        noButton.gameObject.GetComponent<Image>().sprite = defaultNoImage;
         smallWindow.SetActive(false);
         EmailManager.Instance.renderLine.ToggleEnabled(true);
         animator.SetBool("EmailOpen", true);
@@ -52,7 +54,7 @@ public class EmailDisplay : MonoBehaviour {
         deleteButton.interactable = false;
         Close();
         GameManager.EnvironmentScore += emailData.IgnoreScore;
-        StartCoroutine(waitBeforeDeletion());
+        StartCoroutine(nextGamemode(!emailData.Positive));
     }
 
     public void Reply() {
@@ -63,32 +65,42 @@ public class EmailDisplay : MonoBehaviour {
         animator.SetBool("Reply", true);
     }
 
-    public void Yes() {
-        yesButton.gameObject.GetComponent<Image>().sprite = yesImage;
+    public void EndReply(bool agree) {
         yesButton.interactable = false;
         noButton.interactable = false;
-        GameManager.EnvironmentScore += emailData.AcceptScore;
-        StartCoroutine(waitAfterReply());
+        if (agree) {
+            yesButton.gameObject.GetComponent<Image>().sprite = yesImage;
+            GameManager.EnvironmentScore += emailData.AcceptScore;
+        }
+        else {
+            noButton.gameObject.GetComponent<Image>().sprite = noImage;
+            GameManager.EnvironmentScore += emailData.DenyScore;
+        }
+
+        // XNOR if the email is positive and if it is agreed to
+        // (yes, positive) = false
+        // (no, positive) = true
+        // (yes, !positive) = true
+        // (no, !positive) = false
+        // true = cut trees, false = skip to next year
+        StartCoroutine(waitAfterReply(!(emailData.Positive^agree)));
     }
 
-    public void No() {
-        noButton.gameObject.GetComponent<Image>().sprite = noImage;
-        yesButton.interactable = false;
-        noButton.interactable = false;
-        GameManager.EnvironmentScore += emailData.DenyScore;
-        StartCoroutine(waitAfterReply());
-    }
-
-    private IEnumerator waitAfterReply() {
+    private IEnumerator waitAfterReply(bool startCutting) {
         yield return new WaitForSeconds(1f);
         Close();
-        StartCoroutine(waitBeforeDeletion());
+        StartCoroutine(nextGamemode(startCutting));
     }
 
-    private IEnumerator waitBeforeDeletion() {
+    private IEnumerator nextGamemode(bool startCutting) {
         animator.SetBool("Deleting", true);
         yield return new WaitForSeconds(2f);
-        GameManager.Instance.LoadIsometric();
+        if (startCutting) {
+            GameManager.year++;
+            GameManager.Instance.ChangeYear(GameManager.year);
+        } else {
+            GameManager.Instance.LoadIsometric();
+        }
     }
 
     // Unused; use to "type out" text

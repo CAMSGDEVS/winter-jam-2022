@@ -8,4 +8,5 @@ public class Email
     public int AcceptScore;
     public int DenyScore;
     public int IgnoreScore;
+    public bool Positive;
 }
