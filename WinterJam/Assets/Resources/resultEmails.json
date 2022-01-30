@@ -1,0 +1,95 @@
+{
+    "emails":
+    [
+        {
+            "Title": "Crops Won't Grow on Trees",
+            "Sender": "farmer.dylan@agriculture.com",
+            "BodyText": "Howdy! Just purchased a plot of land to farm but unfortunately my seeds never sprout when I put them in the trees. Don't worry, I already purchased pipes for drip irrigation, and I promise my quickly decomposing pesticides won't persist in the local ecosystem. I do love birdwatching. Anyways, do you think you can take this job for me?",
+            "AcceptScore": -5,
+            "DenyScore": 5,
+            "IgnoreScore": 3,
+            "Positive" : false
+        },
+        {
+            "Title": "Golfing Club",
+            "Sender": "richard.wealthington@golfclub.org",
+            "BodyText": "Myself and a guild of golfers require an estate to resume our utmost duties... to golf. Please, take this very large sum of money and clear us a very large sum of land.",
+            "AcceptScore": -9,
+            "DenyScore": 4,
+            "IgnoreScore": 3,
+            "Positive" : false
+        },
+        {
+            "Title": "SAVE THE TREES!!1!1",
+            "Sender": "ecologist243@realmail.com",
+            "BodyText": "THIS IS UNACCEPTABLE. I know how quickly companies like yours can get out of hand... My throat is already too sore to yell at a protest because of all the dust and soil the wind picked up. This clear cutting needs to stop, and we won't end the protests until it does.",
+            "AcceptScore": 10,
+            "DenyScore": -5,
+            "IgnoreScore": -2,
+            "Positive" : true
+        },
+        {
+            "Title": "Government Developments",
+            "Sender": "president@usa.gov",
+            "BodyText": "The people need a morale boost so I can stay in office. Sorry, my secretary took over... so the life of the American people can be improved. We need to build parks and I need you to remove some trees to make space. Signed, Mr. President.",
+            "AcceptScore": -1,
+            "DenyScore": 1,
+            "IgnoreScore": 0,
+            "Positive" : false
+        },
+        {
+            "Title": "OIL",
+            "Sender": "bigceo@brand.com",
+            "BodyText": "I need those oil deposits under some land you own. We just purchased some new fracking vehicles... I'm excited to try them out. Before I purchase the land though, I need room for my trucks. Clear the area out?",
+            "AcceptScore": -15,
+            "DenyScore": 10,
+            "IgnoreScore": 7,
+            "Positive" : false
+        },
+        {
+            "Title": "Trash",
+            "Sender": "dumptrucks@usa.gov",
+            "BodyText": "Mr. President was impressed by your service and asked me to get you on a job again. We need to construct landfills pretty far away from a city, and some of the land you own is perfect for that. Can we make a deal?",
+            "AcceptScore": -12,
+            "DenyScore": 10,
+            "IgnoreScore": 8,
+            "Positive" : false
+        },
+        {
+            "Title": "Rockets and Missiles",
+            "Sender": "rocketman@military.gov",
+            "BodyText": "Howdy. Mr. President loves his rockets and new testing grounds are needed for missiles and such. Of course, exploding trees would not be very environmentally friendly, so please get rid of all of them for us.",
+            "AcceptScore": -17,
+            "DenyScore": 10,
+            "IgnoreScore": 8,
+            "Positive" : false
+        },
+        {
+            "Title": "You Didn't Listen.",
+            "Sender": "ecologist243@realmail.com",
+            "BodyText": "It's too late. The water is turbid, the biodiversity is decreased, the temperature is rising, the least you can do is quit right now. I warned you.",
+            "AcceptScore": 20,
+            "DenyScore": -14,
+            "IgnoreScore": -10,
+            "Positive" : true
+        },
+        {
+            "Title": "Space for Race",
+            "Sender": "muskrat@company.com",
+            "BodyText": "Hello, recent profits from my electric vehicle company left me with a few extra billion dollars, and I would like to sent a crew to Mars. I know perchlorate is a little persistent in the environment, but... anyways. Will you do it?",
+            "AcceptScore": -12,
+            "DenyScore": 8,
+            "IgnoreScore": 4,
+            "Positive" : false
+        },
+        {
+            "Title": "For Science",
+            "Sender": "russianscientist@tech.ru",
+            "BodyText": "Privet! Your Mr. President does not want to approve of my very scientific very legal radar construction in your home country. I will bypass him and come straight to you. I know you may face consequences for this job, so accept for a large number of rubles and the respect of Russia?",
+            "AcceptScore": -18,
+            "DenyScore": 7,
+            "IgnoreScore": 3,
+            "Positive" : false
+        }
+    ]
+}
