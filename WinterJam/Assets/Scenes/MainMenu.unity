@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ecdf7ac7129ec314884d190c624c8496, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2048,7 +2048,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Without having spent a dollar to develop a capitalistic monopoly on trees,
     you resign from your position in a company with questionable values. Although
-    you are unemployed, at least theres a shady spot outside to sleep under a tree.
+    you are unemployed, at least there's a shady spot outside to sleep under a tree.
 --- !u!222 &1449031162
 CanvasRenderer:
   m_ObjectHideFlags: 0

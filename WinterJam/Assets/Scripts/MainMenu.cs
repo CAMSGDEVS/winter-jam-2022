@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour {
 
     [SerializeField] private InputField inputField;
     [SerializeField] private Text warning;
-    [SerializeField] private string password = "bruh";
+    [SerializeField] private string password = "a1b3d0";
     [SerializeField] private Endings endings;
 
     private void Start() {
