@@ -2,7 +2,6 @@
     "emails":
     [
         {
-<<<<<<< HEAD
             "Title": "Crops Won't Grow on Trees",
             "Sender": "farmer.dylan@agriculture.com",
             "BodyText": "Howdy! Just purchased a plot of land to farm but unfortunately my seeds never sprout when I put them in the trees. Don't worry, I already purchased pipes for drip irrigation, and I promise my quickly decomposing pesticides won't persist in the local ecosystem. I do love birdwatching. Anyways, do you think you can take this job for me?",
@@ -19,24 +18,6 @@
             "DenyScore": 4,
             "IgnoreScore": 3,
             "Positive" : false
-=======
-            "Title": "Title",
-            "Sender": "Sender",
-            "BodyText": "Lorem ipsum",
-            "AcceptScore": 0,
-            "DenyScore": 0,
-            "IgnoreScore": 0,
-            "Positive" : true
-        },
-        {
-            "Title": "Title",
-            "Sender": "Sender",
-            "BodyText": "Lorem ipsumasdfasdf",
-            "AcceptScore": 0,
-            "DenyScore": 0,
-            "IgnoreScore": 0,
-            "Positive": true
->>>>>>> 36872354714297ea9970f0e6d4e33299c272d463
         },
         {
             "Title": "SAVE THE TREES!!1!1",
