@@ -62,7 +62,6 @@ public class MachineMovement : MonoBehaviour {
 
     public void Restart() {
         startButton.SetActive(true);
-        animator.SetTrigger("Close");
         position = new Vector3Int(0, 0, 0);
         movement = new Vector3Int(0, 1, 0); // Default starting movement
         direction = 0;

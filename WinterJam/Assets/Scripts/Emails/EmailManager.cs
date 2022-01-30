@@ -26,13 +26,13 @@ public class EmailManager : MonoBehaviour
             Destroy(this);
         }
         _instance = this;
-        DontDestroyOnLoad(gameObject);
         LoadEmailsFromJson();
     }
 
     public void Init(int emailId) {
         OverwriteEmail(emailId, emailDisplay);
         emailDisplay.Init();
+        if (!Replying) renderLine.ChangeStartPoint();
         renderLine.Init();
     }
 

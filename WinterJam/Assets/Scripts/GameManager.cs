@@ -6,12 +6,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
+    public static GameManager Instance {
+        get {
+            if (_instance == null) {
                 Debug.Log("GameManager is null");
             }
             return _instance;
@@ -24,6 +21,7 @@ public class GameManager : MonoBehaviour
     public static int year = 0;
     public static int currentEmailId = 0;
     public static int previousEmailId = 0;
+    public static bool emailDeclined = false;
 
     public GameObject IsometricView, GlobeView;
 
@@ -37,7 +35,7 @@ public class GameManager : MonoBehaviour
             IsometricView.SetActive(false);
             GlobeView.SetActive(true);
             previousEmailId = currentEmailId;
-            EmailManager.Instance.Replying = year == 0 ? false : true;
+            EmailManager.Instance.Replying = year != 0 && !emailDeclined ? true : false;
             currentEmailId = year * 2 + Random.Range(0, 2);
             EmailManager.Instance.Init(year == 0 ? currentEmailId : previousEmailId);
         }
@@ -45,7 +43,7 @@ public class GameManager : MonoBehaviour
         {
             GlobeView.SetActive(false);
             IsometricView.SetActive(false);
-            endings.BadEnding("Trees Destroyed: " + treesDestroyed + "Proesters Killed: " + protestersKilled + "Planet Improvement Factor: " + EnvironmentScore);
+            endings.BadEnding("Trees Destroyed: " + treesDestroyed + "\nProtesters Killed: " + protestersKilled + "\nPlanet Improvement Factor: " + EnvironmentScore);
         }
     }
 
@@ -56,29 +54,13 @@ public class GameManager : MonoBehaviour
         MachineMovement.Restart();
     }
 
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+    private void Awake() {
+        _instance = this;
     }
-
 
     // Start is called before the first frame update
-    void Start()
-    {
+    public void Start() {
+        year = 0;
         ChangeYear(0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
