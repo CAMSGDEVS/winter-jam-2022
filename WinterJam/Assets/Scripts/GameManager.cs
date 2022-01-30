@@ -22,10 +22,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject IsometricView, GlobeView;
 
+    [SerializeField] private Endings endings;
+
     public void ChangeYear(int year) {
-        IsometricView.SetActive(false);
-        GlobeView.SetActive(true);
-        EmailManager.Instance.Init(year * 2 + Random.Range(0, 2));
+        if (year < 5) {
+            IsometricView.SetActive(false);
+            GlobeView.SetActive(true);
+            EmailManager.Instance.Init(year * 2 + Random.Range(0, 2));
+        } else {
+            GlobeView.SetActive(false);
+            IsometricView.SetActive(false);
+            endings.BadEnding();
+        }
     }
 
     private void Awake() {
