@@ -30,8 +30,8 @@
         },
         {
             "Title": "Government Developments",
-            "Sender": "president@usa.gov",
-            "BodyText": "The people need a morale boost so I can stay in office. Sorry, my secretary took over... so the life of the American people can be improved. We need to build parks and I need you to remove some trees to make space. Signed, Mr. President.",
+            "Sender": "presidentchang@usa.gov",
+            "BodyText": "The people need a morale boost so I can stay in office. Sorry, my secretary took over... so the life of the American people can be improved. We need to build parks and I need you to remove some trees to make space. Signed, Ms. President.",
             "AcceptScore": -1,
             "DenyScore": 1,
             "IgnoreScore": 0,
@@ -49,7 +49,7 @@
         {
             "Title": "Trash",
             "Sender": "dumptrucks@usa.gov",
-            "BodyText": "Mr. President was impressed by your service and asked me to get you on a job again. We need to construct landfills pretty far away from a city, and some of the land you own is perfect for that. Can we make a deal?",
+            "BodyText": "Ms. President was impressed by your service and asked me to get you on a job again. We need to construct landfills pretty far away from a city, and some of the land you own is perfect for that. Can we make a deal?",
             "AcceptScore": -12,
             "DenyScore": 10,
             "IgnoreScore": 8,
@@ -58,7 +58,7 @@
         {
             "Title": "Rockets and Missiles",
             "Sender": "rocketman@military.gov",
-            "BodyText": "Howdy. Mr. President loves his rockets and new testing grounds are needed for missiles and such. Of course, exploding trees would not be very environmentally friendly, so please get rid of all of them for us.",
+            "BodyText": "Howdy. Ms. President loves her rockets and new testing grounds are needed for missiles and such. Of course, exploding trees would not be very environmentally friendly, so please get rid of all of them for us.",
             "AcceptScore": -17,
             "DenyScore": 10,
             "IgnoreScore": 8,
@@ -85,7 +85,7 @@
         {
             "Title": "For Science",
             "Sender": "russianscientist@tech.ru",
-            "BodyText": "Privet! Your Mr. President does not want to approve of my very scientific very legal radar construction in your home country. I will bypass him and come straight to you. I know you may face consequences for this job, so accept for a large number of rubles and the respect of Russia?",
+            "BodyText": "Privet! Your Ms. President does not want to approve of my very scientific very legal radar construction in your home country. I will bypass him and come straight to you. I know you may face consequences for this job, so accept for a large number of rubles and the respect of Russia?",
             "AcceptScore": -18,
             "DenyScore": 7,
             "IgnoreScore": 3,
