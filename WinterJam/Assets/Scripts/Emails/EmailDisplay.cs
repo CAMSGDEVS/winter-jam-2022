@@ -32,6 +32,10 @@ public class EmailDisplay : MonoBehaviour {
 
     // Open the email
     public void Open() {
+        replyButton.interactable = true;
+        deleteButton.interactable = true;
+        yesButton.interactable = true;
+        noButton.interactable = true;
         smallWindow.SetActive(false);
         EmailManager.Instance.renderLine.ToggleEnabled(true);
         animator.SetBool("EmailOpen", true);

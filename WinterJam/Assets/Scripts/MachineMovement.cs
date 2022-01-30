@@ -59,6 +59,12 @@ public class MachineMovement : MonoBehaviour {
         isMoving = true;
     }
 
+    public void ChangeYear() {
+        isMoving = false;
+        GameManager.year++;
+        GameManager.Instance.ChangeYear(GameManager.year);
+    }
+
     private void Move() {
         if (isMoving) {
             position += movement;
@@ -71,8 +77,8 @@ public class MachineMovement : MonoBehaviour {
                 GameManager.treesDestroyed++;
                 treeCount--;
                 if (treeCount <= 0) {
-                    GameManager.year++;
-                    GameManager.Instance.ChangeYear(GameManager.year);
+                    isMoving = false;
+                    ChangeYear();
                 }
 
             } else if (tree == generateTiles.protester) {

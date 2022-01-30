@@ -2540,7 +2540,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 86389118}
         m_TargetAssemblyTypeName: MachineMovement, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: ChangeYear
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
