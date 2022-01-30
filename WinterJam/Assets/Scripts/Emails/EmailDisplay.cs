@@ -64,6 +64,7 @@ public class EmailDisplay : MonoBehaviour {
     private IEnumerator ConfirmClose() {
         Close();
         animator.SetBool("Deleting", true);
+        GameManager.emailDeclined = false;
         yield return new WaitForSeconds(2f);
         EmailManager.Instance.Replying = false;
         EmailManager.Instance.Init(GameManager.currentEmailId);
@@ -76,6 +77,7 @@ public class EmailDisplay : MonoBehaviour {
     }
 
     public void Delete() {
+        GameManager.emailDeclined = true;
         replyButton.interactable = false;
         deleteButton.interactable = false;
         Close();
@@ -97,10 +99,12 @@ public class EmailDisplay : MonoBehaviour {
         if (agree) {
             yesButton.gameObject.GetComponent<Image>().sprite = yesImage;
             GameManager.EnvironmentScore += emailData.AcceptScore;
+            GameManager.emailDeclined = false;
         }
         else {
             noButton.gameObject.GetComponent<Image>().sprite = noImage;
             GameManager.EnvironmentScore += emailData.DenyScore;
+            GameManager.emailDeclined = true;
         }
 
         // XNOR if the email is positive and if it is agreed to

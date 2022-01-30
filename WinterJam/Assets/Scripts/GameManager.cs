@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public static int year = 0;
     public static int currentEmailId = 0;
     public static int previousEmailId = 0;
+    public static bool emailDeclined = false;
 
     public GameObject IsometricView, GlobeView;
 
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
             IsometricView.SetActive(false);
             GlobeView.SetActive(true);
             previousEmailId = currentEmailId;
-            EmailManager.Instance.Replying = year == 0 ? false : true;
+            EmailManager.Instance.Replying = year != 0 && !emailDeclined ? true : false;
             currentEmailId = year * 2 + Random.Range(0, 2);
             EmailManager.Instance.Init(year == 0 ? currentEmailId : previousEmailId);
         }
@@ -56,29 +57,13 @@ public class GameManager : MonoBehaviour
         MachineMovement.Restart();
     }
 
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+    private void Awake() {
+        _instance = this;
     }
-
 
     // Start is called before the first frame update
-    void Start()
-    {
+    public void Start() {
+        year = 0;
         ChangeYear(0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

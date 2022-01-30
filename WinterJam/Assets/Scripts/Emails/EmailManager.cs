@@ -26,7 +26,6 @@ public class EmailManager : MonoBehaviour
             Destroy(this);
         }
         _instance = this;
-        DontDestroyOnLoad(gameObject);
         LoadEmailsFromJson();
     }
 
