@@ -53,6 +53,26 @@ public class MachineMovement : MonoBehaviour {
             movement = new Vector3Int(-1, 0, 0);
         }
 
+        if (Input.GetKey(KeyCode.W)) {
+            direction = 0;
+            movement = new Vector3Int(0, 1, 0);
+        }
+
+        if (Input.GetKey(KeyCode.D)) {
+            direction = 2;
+            movement = new Vector3Int(1, 0, 0);
+        }
+
+        if (Input.GetKey(KeyCode.S)) {
+            direction = 3;
+            movement = new Vector3Int(0, -1, 0);
+        }
+
+        if (Input.GetKey(KeyCode.A)) {
+            direction = 1;
+            movement = new Vector3Int(-1, 0, 0);
+        }
+
     }
 
     public void ButtonPressed() {
