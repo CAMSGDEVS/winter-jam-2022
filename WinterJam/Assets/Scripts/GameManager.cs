@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         {
             GlobeView.SetActive(false);
             IsometricView.SetActive(false);
-            endings.BadEnding("Trees Destroyed: " + treesDestroyed + "Proesters Killed: " + protestersKilled + "Planet Improvement Factor: " + EnvironmentScore);
+            endings.BadEnding("Trees Destroyed: " + treesDestroyed + "\nProtesters Killed: " + protestersKilled + "\nPlanet Improvement Factor: " + EnvironmentScore);
         }
     }
 
