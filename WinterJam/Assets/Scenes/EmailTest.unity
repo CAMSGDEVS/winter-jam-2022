@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1470,7 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   good: {fileID: 982207023}
   bad: {fileID: 439869800}
-  badStats: {fileID: 0}
+  badStats: {fileID: 393171425}
 --- !u!4 &533560580
 Transform:
   m_ObjectHideFlags: 0
@@ -2189,7 +2189,7 @@ MonoBehaviour:
   IsometricView: {fileID: 2015025028}
   GlobeView: {fileID: 1353336801}
   endings: {fileID: 533560579}
-  GenerateTiles: {fileID: 0}
+  MachineMovement: {fileID: 0}
 --- !u!4 &812829366
 Transform:
   m_ObjectHideFlags: 0
@@ -3036,6 +3036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emailDisplay: {fileID: 0}
   renderLine: {fileID: 0}
+  Replying: 0
 --- !u!4 &1268391538
 Transform:
   m_ObjectHideFlags: 0

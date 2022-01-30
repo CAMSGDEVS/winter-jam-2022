@@ -12,13 +12,14 @@ public class EmailManager : MonoBehaviour
             }
             return _instance;
         }
-                
     }
 
     public EmailWrapper Emails { get; set; }
+    public EmailWrapper ResultEmails { get; set; }
 
     public EmailDisplay emailDisplay;
     public RenderLine renderLine;
+    public bool Replying;
 
     private void Awake() {
         if (_instance != null) {
@@ -29,7 +30,7 @@ public class EmailManager : MonoBehaviour
         LoadEmailsFromJson();
     }
 
-    public void Init(int emailId = 1) {
+    public void Init(int emailId) {
         OverwriteEmail(emailId, emailDisplay);
         emailDisplay.Init();
         renderLine.Init();
@@ -40,10 +41,14 @@ public class EmailManager : MonoBehaviour
         Emails = JsonUtility.FromJson<EmailWrapper>(
             Resources.Load<TextAsset>("emails").text
         );
+        ResultEmails = JsonUtility.FromJson<EmailWrapper>(
+            Resources.Load<TextAsset>("resultEmails").text
+        );
     }
 
     public void OverwriteEmail(int emailId, EmailDisplay display) {
-        display.emailData = Emails.emails[emailId];
+        if (!Replying) display.emailData = Emails.emails[emailId];
+        else display.emailData = ResultEmails.emails[emailId];
         display.LoadFromData();
     }
 }

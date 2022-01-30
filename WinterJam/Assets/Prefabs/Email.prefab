@@ -713,7 +713,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7999001024135927517}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3078118659658644929}
+        m_TargetAssemblyTypeName: EmailDisplay, Assembly-CSharp
+        m_MethodName: Confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2895436422888394911
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +793,7 @@ MonoBehaviour:
   replyButton: {fileID: 326784570244025063}
   yesButton: {fileID: 7126348358065384305}
   noButton: {fileID: 4505572344220218014}
-  okButton: {fileID: 5582177942681553160}
+  confirmButton: {fileID: 5582177942681553160}
   yesImage: {fileID: -8094590956837232288, guid: 9a40cc92611defa4698943aa719556c8, type: 3}
   noImage: {fileID: 3524253427777847954, guid: 52997a8cb78c52d4a81d341e45eb9c26, type: 3}
   defaultYesImage: {fileID: -5133863244488265749, guid: 9a40cc92611defa4698943aa719556c8, type: 3}
