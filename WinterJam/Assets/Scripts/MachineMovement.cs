@@ -10,6 +10,7 @@ public class MachineMovement : MonoBehaviour {
     [SerializeField] private TileBase[] tiles = new TileBase[4];
     [SerializeField] private Animator animator;
     [SerializeField] private Text legalText;
+    [SerializeField] private GameObject startButton;
 
     private Vector3Int position = new Vector3Int(0, 0, 0);
     private int direction = 0; // Direction the machine is facing: 0 = frontLeft, 1 = backLeft, 2 = frontRight, 3 = backRight
@@ -21,7 +22,7 @@ public class MachineMovement : MonoBehaviour {
         map.SetTile(position, tiles[direction]);
         movement = new Vector3Int(0, 1, 0); // Default starting movement
 
-        isMoving = true;
+        isMoving = false;
         InvokeRepeating("Move", 1/moveSpeed, 1/moveSpeed);
     }
 
@@ -49,14 +50,19 @@ public class MachineMovement : MonoBehaviour {
 
     }
 
+    public void ButtonPressed() {
+        isMoving = true;
+        startButton.SetActive(false);
+    }
+
     public void Restart() {
+        startButton.SetActive(true);
         animator.SetTrigger("Close");
         position = new Vector3Int(0, 0, 0);
         movement = new Vector3Int(0, 1, 0); // Default starting movement
         direction = 0;
         map.SetTile(position, tiles[direction]);
         generateTiles.Reset();
-        isMoving = true;
     }
 
     public void ChangeYear() {
