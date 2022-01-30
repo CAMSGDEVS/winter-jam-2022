@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -241,10 +241,10 @@ MonoBehaviour:
   treeMap: {fileID: 168897863}
   baseMap: {fileID: 2133551808}
   tiles:
-  - {fileID: 11400000, guid: d1f8bccaf40d40e4d887d4f50afcba4f, type: 2}
-  - {fileID: 11400000, guid: 7ddce2438e222be46b4eca73a4ccf6f9, type: 2}
-  - {fileID: 11400000, guid: b5995b6e7a6facd4183d8c7b3933724a, type: 2}
-  - {fileID: 11400000, guid: 2ffdafb86f055e042acd270b71e3c838, type: 2}
+  - {fileID: 11400000, guid: a1cc5e9127d173846ae363173e465a4e, type: 2}
+  - {fileID: 11400000, guid: 200a5e5ef94bcd44eb576027932b935a, type: 2}
+  - {fileID: 11400000, guid: 594e83111406c96458395a1b4b71e033, type: 2}
+  - {fileID: 11400000, guid: 8d98310c9e16a7647933d9970dc36755, type: 2}
   animator: {fileID: 1163523421}
   legalText: {fileID: 47640251}
   startButton: {fileID: 950137292}
@@ -1913,7 +1913,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749044712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.757109, y: 6.64247, z: -7.360115}
+  m_LocalPosition: {x: 3.25, y: 7.92, z: -9.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2015025029}
@@ -4939,7 +4939,7 @@ MonoBehaviour:
   machineMovement: {fileID: 86389118}
   treeDensity: 1
   protesterDensity: 0.3
-  protester: {fileID: 11400000, guid: 670a7b52cc65018489886ca9ad6d5300, type: 2}
+  protester: {fileID: 11400000, guid: e8b5ab8371c95324a91149cf26fde4ab, type: 2}
 --- !u!4 &1992162834
 Transform:
   m_ObjectHideFlags: 0
@@ -5121,7 +5121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2015025029
 Transform:
   m_ObjectHideFlags: 0
