@@ -6,12 +6,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
+    public static GameManager Instance {
+        get {
+            if (_instance == null) {
                 Debug.Log("GameManager is null");
             }
             return _instance;

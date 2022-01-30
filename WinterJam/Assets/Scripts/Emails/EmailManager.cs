@@ -32,6 +32,7 @@ public class EmailManager : MonoBehaviour
     public void Init(int emailId) {
         OverwriteEmail(emailId, emailDisplay);
         emailDisplay.Init();
+        if (!Replying) renderLine.ChangeStartPoint();
         renderLine.Init();
     }
 

@@ -67,6 +67,8 @@ public class EmailDisplay : MonoBehaviour {
         GameManager.emailDeclined = false;
         yield return new WaitForSeconds(2f);
         EmailManager.Instance.Replying = false;
+        GameManager.year++;
+        GameManager.currentEmailId = GameManager.year * 2 + Random.Range(0, 2);
         EmailManager.Instance.Init(GameManager.currentEmailId);
     }
 

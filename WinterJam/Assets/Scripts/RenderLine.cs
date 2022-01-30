@@ -4,13 +4,15 @@ using System.Collections;
 public class RenderLine : MonoBehaviour {
 
     [SerializeField] private LineRenderer lineRenderer;
-    public GameObject startPoint;
+    public GameObject[] startPoints;
     public GameObject endPoint;
 
     private Vector3 endPosition;
+    private int startPointIndex;
 
     private void Awake() {
         EmailManager.Instance.renderLine = this;
+        startPointIndex = Random.Range(0, startPoints.Length);
     }
 
     public void Init() {
@@ -26,8 +28,12 @@ public class RenderLine : MonoBehaviour {
         endPosition = endPoint.transform.position;
     }
 
+    public void ChangeStartPoint() {
+        startPointIndex = Random.Range(0, startPoints.Length);
+    }
+
     private void Update() {
-        Vector3[] positions = { startPoint.transform.position, endPosition };
+        Vector3[] positions = { startPoints[startPointIndex].transform.position, endPosition };
         lineRenderer.SetPositions(positions);
     }
 

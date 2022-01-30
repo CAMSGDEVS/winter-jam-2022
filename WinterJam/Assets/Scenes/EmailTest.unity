@@ -294,7 +294,7 @@ Transform:
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 481447232}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &99862555
 SphereCollider:
@@ -1418,8 +1418,8 @@ Transform:
   m_LocalPosition: {x: -5.921338, y: -1.7652719, z: -36.042404}
   m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children:
-  - {fileID: 1845206237}
   - {fileID: 99862554}
+  - {fileID: 1845206237}
   - {fileID: 580115340}
   - {fileID: 300554244}
   - {fileID: 765114208}
@@ -3321,7 +3321,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 1375075498}
-  startPoint: {fileID: 1845206236}
+  startPoints:
+  - {fileID: 99862553}
+  - {fileID: 1845206236}
+  - {fileID: 580115339}
+  - {fileID: 300554243}
+  - {fileID: 765114207}
   endPoint: {fileID: 1985806533}
 --- !u!1 &1375270021
 GameObject:
@@ -4116,7 +4121,7 @@ Transform:
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 481447232}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1845206238
 SphereCollider:
