@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject IsometricView, GlobeView;
 
     [SerializeField] private Endings endings;
+    public GenerateTiles GenerateTiles;
 
     public void ChangeYear(int year) {
         if (year < 5) {
@@ -34,6 +35,12 @@ public class GameManager : MonoBehaviour
             IsometricView.SetActive(false);
             endings.BadEnding();
         }
+    }
+
+    public void LoadIsometric() {
+        GlobeView.SetActive(false);
+        IsometricView.SetActive(true);
+        GenerateTiles.Reset();
     }
 
     private void Awake() {

@@ -46,6 +46,4 @@ public class EmailManager : MonoBehaviour
         display.emailData = Emails.emails[emailId];
         display.LoadFromData();
     }
-
-
 }

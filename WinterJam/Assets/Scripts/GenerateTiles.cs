@@ -13,10 +13,8 @@ public class GenerateTiles : MonoBehaviour {
 
     private List<Vector3Int> allTiles = new List<Vector3Int>();
 
-    private void Start() {
-        Init();
-        GenerateTrees();
-        GenerateProtesters();
+    public void Awake() {
+        GameManager.Instance.GenerateTiles = this;
     }
 
     private void Init() {

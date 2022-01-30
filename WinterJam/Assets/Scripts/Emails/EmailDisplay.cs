@@ -32,6 +32,10 @@ public class EmailDisplay : MonoBehaviour {
 
     // Open the email
     public void Open() {
+        replyButton.interactable = true;
+        deleteButton.interactable = true;
+        yesButton.interactable = true;
+        noButton.interactable = true;
         smallWindow.SetActive(false);
         EmailManager.Instance.renderLine.ToggleEnabled(true);
         animator.SetBool("EmailOpen", true);
@@ -84,7 +88,7 @@ public class EmailDisplay : MonoBehaviour {
     private IEnumerator waitBeforeDeletion() {
         animator.SetBool("Deleting", true);
         yield return new WaitForSeconds(2f);
-        Destroy(transform.parent.gameObject);
+        GameManager.Instance.LoadIsometric();
     }
 
     // Unused; use to "type out" text
