@@ -84,7 +84,7 @@ public class EmailDisplay : MonoBehaviour {
     private IEnumerator waitBeforeDeletion() {
         animator.SetBool("Deleting", true);
         yield return new WaitForSeconds(2f);
-        Destroy(transform.parent.gameObject);
+        GameManager.Instance.LoadIsometric();
     }
 
     // Unused; use to "type out" text

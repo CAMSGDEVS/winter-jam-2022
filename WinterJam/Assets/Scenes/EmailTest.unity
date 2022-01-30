@@ -1409,6 +1409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsometricView: {fileID: 2015025028}
   GlobeView: {fileID: 1353336801}
+  GenerateTiles: {fileID: 0}
 --- !u!4 &812829366
 Transform:
   m_ObjectHideFlags: 0
@@ -3047,7 +3048,7 @@ MonoBehaviour:
   trees:
   - {fileID: 11400000, guid: 8186342483333314aacd2ee850da87e6, type: 2}
   - {fileID: 11400000, guid: d5f2b0cec0b2d514dacf47d397e0dab7, type: 2}
-  machineMovement: {fileID: 0}
+  machineMovement: {fileID: 86389118}
   treeDensity: 1
   protesterDensity: 0.3
   protester: {fileID: 11400000, guid: 670a7b52cc65018489886ca9ad6d5300, type: 2}
