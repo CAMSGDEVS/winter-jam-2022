@@ -13,10 +13,6 @@ public class GenerateTiles : MonoBehaviour {
 
     private List<Vector3Int> allTiles = new List<Vector3Int>();
 
-    public void Awake() {
-        GameManager.Instance.GenerateTiles = this;
-    }
-
     private void Init() {
         allTiles.Clear();
         foreach (Vector3Int position in baseMap.cellBounds.allPositionsWithin) { // Init allTiles

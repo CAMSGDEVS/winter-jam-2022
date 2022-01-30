@@ -8,13 +8,15 @@ public class EmailDisplay : MonoBehaviour {
 
     [SerializeField] private Animator animator;
 
-    [SerializeField] private Button deleteButton, replyButton, yesButton, noButton;
+    [SerializeField] private Button deleteButton, replyButton, yesButton, noButton, confirmButton;
 
     [SerializeField] private Sprite yesImage, noImage, defaultYesImage, defaultNoImage;
 
     public Email emailData;
 
     public GameObject center, smallWindow;
+
+    private bool replying;
 
     public void LoadFromData() {
         headerText.text = emailData.Title;
@@ -32,15 +34,39 @@ public class EmailDisplay : MonoBehaviour {
 
     // Open the email
     public void Open() {
-        replyButton.interactable = true;
-        deleteButton.interactable = true;
+        replying = EmailManager.Instance.Replying;
+        replyButton.interactable = !replying;
+        deleteButton.interactable = !replying;
+        confirmButton.interactable = replying;
+
         yesButton.interactable = true;
         noButton.interactable = true;
+
+        replyButton.gameObject.SetActive(!replying);
+        deleteButton.gameObject.SetActive(!replying);
+        confirmButton.gameObject.SetActive(replying);
+
+        replyButton.interactable = !replying;
+        deleteButton.interactable = !replying;
+        confirmButton.interactable = replying;
+
         yesButton.gameObject.GetComponent<Image>().sprite = defaultYesImage;
         noButton.gameObject.GetComponent<Image>().sprite = defaultNoImage;
         smallWindow.SetActive(false);
         EmailManager.Instance.renderLine.ToggleEnabled(true);
         animator.SetBool("EmailOpen", true);
+    }
+
+    public void Confirm() {
+        StartCoroutine(ConfirmClose());
+    }
+
+    private IEnumerator ConfirmClose() {
+        Close();
+        animator.SetBool("Deleting", true);
+        yield return new WaitForSeconds(2f);
+        EmailManager.Instance.Replying = false;
+        EmailManager.Instance.Init(GameManager.currentEmailId);
     }
 
     // Close the email

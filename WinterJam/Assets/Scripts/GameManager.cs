@@ -6,9 +6,12 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
 
-    public static GameManager Instance {
-        get {
-            if (_instance == null) {
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
                 Debug.Log("GameManager is null");
             }
             return _instance;
@@ -19,34 +22,48 @@ public class GameManager : MonoBehaviour
     public static int treesDestroyed = 0;
     public static int protestersKilled = 0;
     public static int year = 0;
+    public static int currentEmailId = 0;
+    public static int previousEmailId = 0;
 
     public GameObject IsometricView, GlobeView;
 
     [SerializeField] private Endings endings;
-    public GenerateTiles GenerateTiles;
+    public MachineMovement MachineMovement;
 
-    public void ChangeYear(int year) {
-        if (year < 5) {
+    public void ChangeYear(int year)
+    {
+        if (year < 5)
+        {
             IsometricView.SetActive(false);
             GlobeView.SetActive(true);
-            EmailManager.Instance.Init(year * 2 + Random.Range(0, 2));
-        } else {
+            previousEmailId = currentEmailId;
+            EmailManager.Instance.Replying = year == 0 ? false : true;
+            currentEmailId = year * 2 + Random.Range(0, 2);
+            EmailManager.Instance.Init(year == 0 ? currentEmailId : previousEmailId);
+        }
+        else
+        {
             GlobeView.SetActive(false);
             IsometricView.SetActive(false);
             endings.BadEnding("Trees Destroyed: " + treesDestroyed + "Proesters Killed: " + protestersKilled + "Planet Improvement Factor: " + EnvironmentScore);
         }
     }
 
-    public void LoadIsometric() {
+    public void LoadIsometric()
+    {
         GlobeView.SetActive(false);
         IsometricView.SetActive(true);
-        GenerateTiles.Reset();
+        MachineMovement.Restart();
     }
 
-    private void Awake() {
-        if (_instance != null) {
+    private void Awake()
+    {
+        if (_instance != null)
+        {
             Destroy(this);
-        } else {
+        }
+        else
+        {
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -54,13 +71,14 @@ public class GameManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         ChangeYear(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

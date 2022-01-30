@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -16,6 +17,10 @@ public class MachineMovement : MonoBehaviour {
     public int treeCount = 0;
     private Vector3Int movement;
     private bool isMoving;
+
+    public void Awake() {
+        GameManager.Instance.MachineMovement = this;
+    }
 
     public void Start() {
         map.SetTile(position, tiles[direction]);
@@ -50,7 +55,6 @@ public class MachineMovement : MonoBehaviour {
     }
 
     public void Restart() {
-        animator.SetTrigger("Close");
         position = new Vector3Int(0, 0, 0);
         movement = new Vector3Int(0, 1, 0); // Default starting movement
         direction = 0;
@@ -60,8 +64,13 @@ public class MachineMovement : MonoBehaviour {
     }
 
     public void ChangeYear() {
+        StartCoroutine(ChangeYearWait());
+    }
+
+    private IEnumerator ChangeYearWait() {
         isMoving = false;
         animator.SetTrigger("Close");
+        yield return new WaitForSeconds(0.5f);
         position = new Vector3Int(0, 0, 0);
         movement = new Vector3Int(0, 1, 0);
         direction = 0;
