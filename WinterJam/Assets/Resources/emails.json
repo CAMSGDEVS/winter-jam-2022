@@ -7,7 +7,8 @@
             "BodyText": "Lorem ipsum",
             "AcceptScore": 0,
             "DenyScore": 0,
-            "IgnoreScore": 0
+            "IgnoreScore": 0,
+            "Positive" : true
         },
         {
             "Title": "Title",
@@ -15,7 +16,8 @@
             "BodyText": "Lorem ipsumasdfasdf",
             "AcceptScore": 0,
             "DenyScore": 0,
-            "IgnoreScore": 0
+            "IgnoreScore": 0,
+            "Positive": true
         },
         {
             "Title": "Title",
